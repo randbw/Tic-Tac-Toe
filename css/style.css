@@ -9,6 +9,7 @@
   border: 1px solid black;
   background: teal;
   display: inline-block;
+  text-align: center;
 }
 
 .gameBoard {
