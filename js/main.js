@@ -63,7 +63,7 @@ $(document).ready(function(){
         xTurn = true;
       }
     } else {
-      $('div.messageBoard').append('Cannot move here.');
+      $('div.messageBoard').append('<p>Cannot move here.</p>');
       movePlacer();
       return null;
     }
