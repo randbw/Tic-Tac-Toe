@@ -1,6 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Short+Stack);
+
 body {
   position: relative;
-  background-image: 
+  background-image:;
+  font-family: 'Short Stack', cursive;
 }
 
 .container {
@@ -10,8 +13,8 @@ body {
 }
 
 .square {
-  height: 127px;
-  width: 127px;
+  height: 126px;
+  width: 126px;
   border: 1px solid black;
   background: teal;
   display: inline-block;
@@ -20,7 +23,7 @@ body {
   vertical-align: middle;
   border-radius: 10px;
   padding: 0.5px;
-  margin-top: 2.5px;
+  margin-top: 6px;
 }
 
 .gameBoard {
