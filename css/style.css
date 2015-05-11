@@ -1,0 +1,29 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.square {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  background: teal;
+  display: inline-block;
+}
+
+.gameBoard {
+  width: 400px;
+  height: 400px;
+  display: inline-block;
+}
+
+.square:hover {
+  opacity: 0.6;
+}
+
+.messageBoard {
+  background-color: #AB5268;
+  height: 400px;
+  width: 400px;
+  display: inline-block;
+}
