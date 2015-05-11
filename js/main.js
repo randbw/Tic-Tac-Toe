@@ -1,20 +1,79 @@
 $(document).ready(function(){
 
-  // determines whether it is X's or O's go
-  var xTurn = true;
+  // Move counter to see if game is over
+  var moveCounter = 0;
 
-  // In charge of placing X or O in div and then switching turn
-  var move = function () {
-    if (xTurn) {
-      $(this).html('X');
-      xTurn = false;
+  // determines if square is already occupied
+  var isOccupied = function (square) {
+    if ($(square).html() === '') {
+      return false;
     } else {
-      $(this).html('O');
-      xTurn = true;
+      return true;
     }
   };
 
+  // Array which all logic in the universe comes from (decides who wins game)
+  var pandorasBox = [[],[],[]];
+
+  // searches divs and places into pandorasBox to figure out winning combinations
+  var movePlacer = function () {
+    pandorasBox[0][0] = $('div#1').html();
+    pandorasBox[0][1] = $('div#2').html();
+    pandorasBox[0][2] = $('div#3').html();
+    pandorasBox[1][0] = $('div#4').html();
+    pandorasBox[1][1] = $('div#5').html();
+    pandorasBox[1][2] = $('div#6').html();
+    pandorasBox[2][0] = $('div#7').html();
+    pandorasBox[2][1] = $('div#8').html();
+    pandorasBox[2][2] = $('div#9').html();
+  };
+
+  // Recognises if there is a winner at end of move
+  var isThereWinner = function () {
+    if ((pandorasBox[0][0] === pandorasBox[1][0] && pandorasBox[1][0] === pandorasBox[2][0]) && (pandorasBox[0][0] === 'X' || pandorasBox[0][0] === 'O')) {
+      alert(pandorasBox[0][0] + ' is the winner!');
+    } else if ((pandorasBox[0][1] === pandorasBox[1][1] && pandorasBox[1][1] === pandorasBox[2][1]) && (pandorasBox[0][1] === 'X' || pandorasBox[0][1] === 'O')) {
+      alert(pandorasBox[0][1] + ' is the winner!');
+    } else if ((pandorasBox[0][2] === pandorasBox[1][2] && pandorasBox[1][2] === pandorasBox[2][2]) && (pandorasBox[0][2] === 'X' || pandorasBox[0][2] === 'O')) {
+      alert(pandorasBox[0][2] + ' is the winner!');
+    } else if ((pandorasBox[0][0] === pandorasBox[0][1] && pandorasBox[0][1] === pandorasBox[0][2]) && (pandorasBox[0][0] === 'X' || pandorasBox[0][0] === 'O')) {
+      alert(pandorasBox[0][0] + ' is the winner!');
+    } else if ((pandorasBox[1][0] === pandorasBox[1][1] && pandorasBox[1][1] === pandorasBox[1][2]) && (pandorasBox[1][0] === 'X' || pandorasBox[1][0] === 'O')) {
+      alert(pandorasBox[1][0] + ' is the winner!');
+    } else if ((pandorasBox[2][0] === pandorasBox[2][1] && pandorasBox[2][1] === pandorasBox[2][2]) && (pandorasBox[2][0] === 'X' || pandorasBox[2][0] === 'O')) {
+      alert(pandorasBox[2][0] + ' is the winner!');
+    } else if ((pandorasBox[0][0] === pandorasBox[1][1] && pandorasBox[1][1] === pandorasBox[2][2]) && (pandorasBox[0][0] === 'X' || pandorasBox[0][0] === 'O')) {
+      alert(pandorasBox[0][0] + ' is the winner!');
+    } else if ((pandorasBox[0][2] === pandorasBox[1][1] && pandorasBox[1][1] === pandorasBox[2][0]) && (pandorasBox[0][2] === 'X' || pandorasBox[0][2] === 'O')) {
+      alert(pandorasBox[0][2] + ' is the winner!');
+    }
+  };
+
+  // determines whether it is X's or O's go
+  var xTurn = true;
+
+  // Places letter in div and uses xTurn to switch turn
+  var move = function () {
+    if (isOccupied(this) === false) {
+      if (xTurn) {
+        $(this).html('X');
+        xTurn = false;
+      } else {
+        $(this).html('O');
+        xTurn = true;
+      }
+    } else {
+      $('div.messageBoard').append('Cannot move here.');
+      movePlacer();
+      return null;
+    }
+    movePlacer();
+    moveCounter += 1;
+    console.log(moveCounter);
+    isThereWinner();
+  };
+
+  // Activates the move function when squares are clicked
   $('.gameBoard').on('click','.square',move);
- 
  
 });
