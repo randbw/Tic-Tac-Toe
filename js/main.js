@@ -13,7 +13,7 @@ $(document).ready(function(){
   };
 
   // Array which all logic in the universe comes from (decides who wins game)
-  var pandorasBox = [[],[],[]];
+  var pandorasBox = [['','',''],['','',''],['','','']];
 
   // searches divs and places into pandorasBox to figure out winning combinations
   var movePlacer = function () {
@@ -90,19 +90,18 @@ $(document).ready(function(){
         return null;
       }
 
+      if (moveCounter === 9) { // checks if the board is full after there
+      gameOver = true;     // is no winner to end the game as draw.
+      alert('Draw!');
+      $('div.messageBoard').append('<p>Result is a draw. Game is over!</p>');
+      }
+
       movePlacer(); // places all moves into array
       isThereWinner(); // checks array to see if winner
 
 
     } else if (gameOver === true) {
       $('div.messageBoard').append('<p>Game is over!</p>'); // says that the game is over
-    }
-
-    if (moveCounter === 9) { // checks if the board is full after there
-      gameOver === true;     // is no winner to end the game as draw.
-      console.log(gameOver);
-      alert('Draw!');
-      $('div.messageBoard').append('<p>Result is a draw. Game is over!</p>');
     }
     
   };
