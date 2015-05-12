@@ -73,11 +73,22 @@ $(document).ready(function(){
 
   // Shows whose go it is above gameboard
   var showGo = function () {
-    if (xturn) {
+    if (xTurn) {
       $('#turn').html('X\'s go');
     } else {
       $('#turn').html('O\'s go');
     }
+  };
+
+  // Games played counter
+  var gamesPlayed = 0;
+
+  // T/F to see if gamesPlayed has already been updated
+  var gamesPlayedUpdateAllowed = true;
+
+  // Adds gamesPlayed to the UI
+  var gamesCounter = function () {
+    $('#gamesPlayed').html(gamesPlayed + ' games played.');
   };
 
   // Places letter on gameBoard and uses xTurn to switch turn
@@ -88,14 +99,14 @@ $(document).ready(function(){
       if (isOccupied(this) === false) { // checks if cell is occupied
         if (xTurn) {
           $(this).html('X');
-          xTurn = false;
+          xTurn = false; // next round it will be O's go
           moveCounter += 1; // adds one to move counter
           showGo(); // changes whose go it is above gameBoard
         } else {
           $(this).html('O');
           xTurn = true; // switches player turn automatically using true/false
           moveCounter += 1;
-          showGo(); // changes whose go it is above gameBoard
+          showGo();
         }
       } else {
         $('div.messageBoard').append('<p>Cannot move here.</p>'); 
@@ -116,6 +127,13 @@ $(document).ready(function(){
       $('div.messageBoard').append('<p>Game is over!</p>'); // says that the game is over
     }
     
+    if (gameOver === true && gamesPlayedUpdateAllowed === true) {
+      gamesPlayed += 1;
+      gamesPlayedUpdateAllowed = false;
+      gamesCounter();
+      $('#resetBoard').addClass('resetTime');
+    }
+
   };
 
   // Reset board function
@@ -133,7 +151,8 @@ $(document).ready(function(){
     moveCounter = 0;
     gameOver = false;
     $('.messageBoard').html('<h2>Message Board</h2>');
-    console.log('reset');
+    $('#resetBoard').removeClass('resetTime').addClass('infoBox');
+    gamesPlayedUpdateAllowed = true;
   };
 
   // Activates the move function when squares are clicked

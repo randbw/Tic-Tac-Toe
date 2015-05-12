@@ -2,7 +2,6 @@
 
 body {
   position: relative;
-  /*background-color: #A44AED;*/
   background-color: white;
   font-family: 'Amatic SC', cursive;
   font-weight: bold;
@@ -17,7 +16,6 @@ body {
 .square {
   height: 125px;
   width: 124px;
-  /*border: 2px solid black;*/
   background: rgb(118,201,229);
   display: inline-block;
   text-align: center;
@@ -50,8 +48,6 @@ body {
   top: -50px;
   border-radius: 5px;
   text-align: center;
-  /*border: 2px solid black;*/
-  /*box-shadow: 4px 4px 4px #DCDEDC;*/
 }
 
 h1 {
@@ -70,12 +66,11 @@ h1 {
   border-bottom: 10px solid black;
 }*/
 
-#xWins, #oWins, #resetBoard, #restartGame {
+.infoBox {
   width: 200px;
   height: 91px;
   background-color: #FFEED3;
   border-radius: 5px;
-  /*border: 2px solid black;*/
   position: absolute;
   right: 270px;
   top: 10px;
@@ -101,9 +96,8 @@ h1 {
 }
 
 #turn {
-  background: #D1CDD0;/*#A44AED;*/
+  background: #D1CDD0;
   height: 50px;
-  /*width: 120px;*/
   width: 380px;
   position: absolute;
   top: -50px;
@@ -111,7 +105,6 @@ h1 {
   text-align: center;
   font-size: 25px;
   line-height: 2;
-  /*border: 2px solid black;*/
   border-radius: 5px;
   font-weight: bold;
 }
@@ -126,7 +119,6 @@ h1 {
   text-align: center;
   font-size: 25px;
   line-height: 2;
-  /*border: 2px solid black;*/
   border-radius: 5px;
 }
 
@@ -140,6 +132,8 @@ h1 {
   text-align: center;
   font-size: 25px;
   line-height: 2;
-  /*border: 2px solid black;*/
   border-radius: 5px;
+}
+.resetTime {
+  background-color: #D86600;
 }
