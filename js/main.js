@@ -17,15 +17,15 @@ $(document).ready(function(){
 
   // searches divs and places into pandorasBox to figure out winning combinations
   var movePlacer = function () {
-    pandorasBox[0][0] = $('div#1').html();
-    pandorasBox[0][1] = $('div#2').html();
-    pandorasBox[0][2] = $('div#3').html();
-    pandorasBox[1][0] = $('div#4').html();
-    pandorasBox[1][1] = $('div#5').html();
-    pandorasBox[1][2] = $('div#6').html();
-    pandorasBox[2][0] = $('div#7').html();
-    pandorasBox[2][1] = $('div#8').html();
-    pandorasBox[2][2] = $('div#9').html();
+    pandorasBox[0][0] = $('div#one').html();
+    pandorasBox[0][1] = $('div#two').html();
+    pandorasBox[0][2] = $('div#three').html();
+    pandorasBox[1][0] = $('div#four').html();
+    pandorasBox[1][1] = $('div#five').html();
+    pandorasBox[1][2] = $('div#six').html();
+    pandorasBox[2][0] = $('div#seven').html();
+    pandorasBox[2][1] = $('div#eight').html();
+    pandorasBox[2][2] = $('div#nine').html();
   };
 
   // Decides if game is ended
@@ -90,15 +90,14 @@ $(document).ready(function(){
         return null;
       }
 
-      if (moveCounter === 9) { // checks if the board is full after there
+      movePlacer(); // places all moves into array
+      isThereWinner(); // checks array to see if winner
+
+      if (moveCounter === 9 && gameOver === false) { // checks if the board is full after there
       gameOver = true;     // is no winner to end the game as draw.
       alert('Draw!');
       $('div.messageBoard').append('<p>Result is a draw. Game is over!</p>');
       }
-
-      movePlacer(); // places all moves into array
-      isThereWinner(); // checks array to see if winner
-
 
     } else if (gameOver === true) {
       $('div.messageBoard').append('<p>Game is over!</p>'); // says that the game is over
