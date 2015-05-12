@@ -137,3 +137,6 @@ h1 {
 .resetTime {
   background-color: #D86600;
 }
+#restartGame:hover {
+  cursor: pointer;
+}
