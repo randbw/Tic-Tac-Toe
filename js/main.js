@@ -12,10 +12,10 @@ $(document).ready(function(){
     }
   };
 
-  // Array which all logic in the universe comes from (decides who wins game)
+  // Array used in isThereWinner() to decide who wins game
   var pandorasBox = [['','',''],['','',''],['','','']];
 
-  // searches divs and places into pandorasBox to figure out winning combinations
+  // places div content into pandorasBox array to figure out winning combinations
   var movePlacer = function () {
     pandorasBox[0][0] = $('div#one').html();
     pandorasBox[0][1] = $('div#two').html();
@@ -68,35 +68,46 @@ $(document).ready(function(){
     }
   };
 
-  // determines whether it is X's or O's go
+  // changes depending who went last to see if it is X's or O's go
   var xTurn = true;
 
-  // Places letter in div and uses xTurn to switch turn
+  // Shows whose go it is above gameboard
+  var showGo = function () {
+    if (xturn) {
+      $('#turn').html('X\'s go');
+    } else {
+      $('#turn').html('O\'s go');
+    }
+  };
+
+  // Places letter on gameBoard and uses xTurn to switch turn
   var move = function () {
     
-    if (gameOver === false) { // checks if game is over before playing
+    if (gameOver === false) { // checks if game is complete yet
       
       if (isOccupied(this) === false) { // checks if cell is occupied
         if (xTurn) {
           $(this).html('X');
           xTurn = false;
           moveCounter += 1; // adds one to move counter
+          showGo(); // changes whose go it is above gameBoard
         } else {
           $(this).html('O');
           xTurn = true; // switches player turn automatically using true/false
-          moveCounter += 1; // adds one to move counter
+          moveCounter += 1;
+          showGo(); // changes whose go it is above gameBoard
         }
       } else {
-        $('div.messageBoard').append('<p>Cannot move here.</p>');
-        movePlacer(); // says that you can't move there if occupied cell
-        return null;
+        $('div.messageBoard').append('<p>Cannot move here.</p>'); 
+        movePlacer();
       }
 
       movePlacer(); // places all moves into array
       isThereWinner(); // checks array to see if winner
 
+
       if (moveCounter === 9 && gameOver === false) { // checks if the board is full after there
-      gameOver = true;     // is no winner to end the game as draw.
+      gameOver = true;                               // is no winner to end the game as draw.
       alert('Draw!');
       $('div.messageBoard').append('<p>Result is a draw. Game is over!</p>');
       }

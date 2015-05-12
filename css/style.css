@@ -1,9 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Short+Stack);
+@import url(http://fonts.googleapis.com/css?family=Amatic+SC:400,700);
 
 body {
   position: relative;
-  background-color: #A44AED;
-  font-family: 'Short Stack', cursive;
+  /*background-color: #A44AED;*/
+  background-color: white;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
 }
 
 .container {
@@ -13,15 +15,15 @@ body {
 }
 
 .square {
-  height: 126px;
-  width: 126px;
-  border: 1px solid black;
-  background: teal;
+  height: 125px;
+  width: 124px;
+  /*border: 2px solid black;*/
+  background: rgb(118,201,229);
   display: inline-block;
   text-align: center;
   font-size: 110px;
   vertical-align: middle;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 0.5px;
   margin-top: 6px;
 }
@@ -35,26 +37,28 @@ body {
 }
 
 .square:hover {
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .messageBoard {
-  background-color: #AB5268;
-  height: 396px;
+  background-color: rgb(246,120,114);
+  height: 454px;
   width: 200px;
   display: inline-block;
   position: absolute;
   right: 0px;
-  top: 10px;
-  border-radius: 20px;
+  top: -50px;
+  border-radius: 5px;
   text-align: center;
-  border: 2px solid black;
+  /*border: 2px solid black;*/
+  /*box-shadow: 4px 4px 4px #DCDEDC;*/
 }
 
 h1 {
   text-align: center;
   font-size: 70px;
   font-weight: bold;
+  margin-bottom: 100px;
 }
 
 /*#two, #five, #eight {
@@ -69,17 +73,17 @@ h1 {
 #xWins, #oWins, #resetBoard, #restartGame {
   width: 200px;
   height: 91px;
-  background-color: #747573;
-  border-radius: 20px;
-  border: 2px solid black;
+  background-color: #FFEED3;
+  border-radius: 5px;
+  /*border: 2px solid black;*/
   position: absolute;
   right: 270px;
   top: 10px;
   text-align: center;
   margin: auto;
-  line-height: 2;
+  line-height: 1;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 33px;
 }
 #oWins {
   top: 110px;
@@ -88,8 +92,54 @@ h1 {
 #resetBoard {
   top: 210px;
 }
+#resetBoard:hover {
+  cursor: pointer;
+}
 
 #restartGame {
   top: 310px;
 }
 
+#turn {
+  background: #D1CDD0;/*#A44AED;*/
+  height: 50px;
+  /*width: 120px;*/
+  width: 380px;
+  position: absolute;
+  top: -50px;
+  left: 03px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 2;
+  /*border: 2px solid black;*/
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+#messageTitle {
+  background: #D1CDD0;
+  height: 50px;
+  width: 200px;
+  position: absolute;
+  top: -50px;
+  right: 0px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 2;
+  /*border: 2px solid black;*/
+  border-radius: 5px;
+}
+
+#gamesPlayed {
+  background: #D1CDD0;
+  height: 50px;
+  width: 200px;
+  position: absolute;
+  top: -50px;
+  right: 270px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 2;
+  /*border: 2px solid black;*/
+  border-radius: 5px;
+}
