@@ -2,7 +2,7 @@
 
 body {
   position: relative;
-  background-image:;
+  background-color: #A44AED;
   font-family: 'Short Stack', cursive;
 }
 
@@ -48,8 +48,9 @@ body {
   text-align: center;
   border: 1px solid black;
 }
+
 h1 {
   text-align: center;
-  font-size: 40px;
+  font-size: 70px;
   font-weight: bold;
 }
