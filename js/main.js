@@ -75,14 +75,16 @@ $(document).ready(function(){
   var move = function () {
     
     if (gameOver === false) { // checks if game is over before playing
-      moveCounter += 1; // adds one to move counter
+      
       if (isOccupied(this) === false) { // checks if cell is occupied
         if (xTurn) {
           $(this).html('X');
           xTurn = false;
+          moveCounter += 1; // adds one to move counter
         } else {
           $(this).html('O');
           xTurn = true; // switches player turn automatically using true/false
+          moveCounter += 1; // adds one to move counter
         }
       } else {
         $('div.messageBoard').append('<p>Cannot move here.</p>');
@@ -105,7 +107,26 @@ $(document).ready(function(){
     
   };
 
+  // Reset board function
+  var resetBoardFn = function () {
+    // if (moveCounter > 1) ... make it confirm to do it
+    $('div#one').html('');
+    $('div#two').html('');
+    $('div#three').html('');
+    $('div#four').html('');
+    $('div#five').html('');
+    $('div#six').html('');
+    $('div#seven').html('');
+    $('div#eight').html('');
+    $('div#nine').html('');
+    moveCounter = 0;
+    gameOver = false;
+    $('.messageBoard').html('<h2>Message Board</h2>');
+    console.log('reset');
+  };
+
   // Activates the move function when squares are clicked
   $('.gameBoard').on('click','.square',move);
+  $('#resetBoard').on('click',resetBoardFn);
  
 });

@@ -31,22 +31,24 @@ body {
   height: 400px;
   display: inline-block;
   position: absolute;
+  padding: 3px;
 }
 
 .square:hover {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .messageBoard {
   background-color: #AB5268;
-  height: 400px;
-  width: 400px;
+  height: 396px;
+  width: 200px;
   display: inline-block;
   position: absolute;
   right: 0px;
+  top: 10px;
   border-radius: 20px;
   text-align: center;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 
 h1 {
@@ -55,7 +57,39 @@ h1 {
   font-weight: bold;
 }
 
-/*#one {
+/*#two, #five, #eight {
+  border-left: 10px solid black;
   border-right: 10px solid black;
+}
+#four, #six {
+  border-top: 10px solid black;
   border-bottom: 10px solid black;
 }*/
+
+#xWins, #oWins, #resetBoard, #restartGame {
+  width: 200px;
+  height: 91px;
+  background-color: #747573;
+  border-radius: 20px;
+  border: 2px solid black;
+  position: absolute;
+  right: 270px;
+  top: 10px;
+  text-align: center;
+  margin: auto;
+  line-height: 2;
+  font-weight: bold;
+  font-size: 20px;
+}
+#oWins {
+  top: 110px;
+}
+
+#resetBoard {
+  top: 210px;
+}
+
+#restartGame {
+  top: 310px;
+}
+
