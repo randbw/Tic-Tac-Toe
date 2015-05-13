@@ -64,7 +64,6 @@ var isThereWinner = function () {
 
     if ((cell1 === cell2 && cell2 === cell3) && (cell1 === 'X' || cell1 === 'O')) {
       console.log(cell1 + ' is the winner!');
-      alert(cell1 + ' is the winner!');
       gameOver = true;
       $('div.messageBoard').append('<p>' + cell1 + ' is the winner!</p>');
 
@@ -211,7 +210,7 @@ var isThereWinner = function () {
 
 // When you press restart, everything fades out and then back in cleared as if page just loaded
 var restartFlash = function () {
-  $('body').fadeOut(130).fadeIn(130);
+  $('body').fadeOut(20).fadeIn(130);
 };
 
 var resetFlash = function () {
