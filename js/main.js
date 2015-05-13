@@ -58,12 +58,14 @@ var isThereWinner = function () {
 
   for (var i = 0; i < winningCombos.length; i += 1) {
 
-    var cell1 = $('#' + winningCombos[i][0]).html();
-    var cell2 = $('#' + winningCombos[i][1]).html();
-    var cell3 = $('#' + winningCombos[i][2]).html();
+    var cell1 = $('#' + winningCombos[i][0]).children().text();
+    var cell2 = $('#' + winningCombos[i][1]).children().text();
+    var cell3 = $('#' + winningCombos[i][2]).children().text();
+    console.log(cell1);
+    console.log(cell2);
+    console.log(cell3);
 
     if ((cell1 === cell2 && cell2 === cell3) && (cell1 === 'X' || cell1 === 'O')) {
-      console.log(cell1 + ' is the winner!');
       gameOver = true;
       $('div.messageBoard').append('<p>' + cell1 + ' is the winner!</p>');
 
@@ -109,12 +111,14 @@ var isThereWinner = function () {
       
       if (isOccupied(this) === false) { // checks if cell is occupied
         if (xTurn) {
-          $(this).html('X');
+          // $(this).html('X');
+          $(this).html('<div class="content">X</div>').hide().fadeIn();
           xTurn = false; // next round it will be O's go
           moveCounter += 1; // adds one to move counter
           showGo(); // changes whose go it is above gameBoard
         } else {
-          $(this).html('O');
+          // $(this).html('O');
+          $(this).html('<div class="content">O</div>').hide().fadeIn();
           xTurn = true;
           moveCounter += 1;
           showGo();
@@ -130,7 +134,6 @@ var isThereWinner = function () {
 
       if (moveCounter === 9 && gameOver === false) {        // checks if the board is full. If there
       gameOver = true;                                      // is no winner to end the game as draw.
-      alert('Draw!');
       $('div.messageBoard').append('<p>Result is a draw. Game is over!</p>');
       }
 
