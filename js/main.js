@@ -183,9 +183,16 @@ var isThereWinner = function () {
     showGo();
   };
 
+  var restartGameWithConfirm = function () {
+    var confirmRestart = confirm('Are you sure you wish to restart the game completely?');
+    if (confirmRestart === true) {
+      restartGame();
+    }
+  };
+
   // The click activated functions
   $('.gameBoard').on('click','.square',move);
   $('#resetBoard').on('click',resetBoardwithConfirm);
-  $('#restartGame').on('click',restartGame);
+  $('#restartGame').on('click',restartGameWithConfirm);
  
 });
