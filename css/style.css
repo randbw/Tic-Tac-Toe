@@ -7,6 +7,13 @@ body {
   font-weight: bold;
 }
 
+h1 {
+  text-align: center;
+  font-size: 70px;
+  font-weight: bold;
+  margin-bottom: 100px;
+}
+
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -26,17 +33,17 @@ body {
   margin-top: 6px;
 }
 
+.square:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
 .gameBoard {
   width: 400px;
   height: 400px;
   display: inline-block;
   position: absolute;
   padding: 3px;
-}
-
-.square:hover {
-  opacity: 0.5;
-  cursor: pointer;
 }
 
 .messageBoard {
@@ -54,22 +61,6 @@ body {
 .messageBoard > p {
   font-size: 20px;
 }
-
-h1 {
-  text-align: center;
-  font-size: 70px;
-  font-weight: bold;
-  margin-bottom: 100px;
-}
-
-/*#two, #five, #eight {
-  border-left: 10px solid black;
-  border-right: 10px solid black;
-}
-#four, #six {
-  border-top: 10px solid black;
-  border-bottom: 10px solid black;
-}*/
 
 .infoBox {
   width: 200px;
@@ -100,8 +91,16 @@ h1 {
   cursor: pointer;
 }
 
+.resetTime {
+  background-color: #D86600;
+}
+
 #restartGame {
   top: 310px;
+}
+
+#restartGame:hover {
+  cursor: pointer;
 }
 
 #turn {
@@ -142,10 +141,4 @@ h1 {
   font-size: 25px;
   line-height: 2;
   border-radius: 5px;
-}
-.resetTime {
-  background-color: #D86600;
-}
-#restartGame:hover {
-  cursor: pointer;
 }
