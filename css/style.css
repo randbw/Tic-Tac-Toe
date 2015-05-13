@@ -143,3 +143,15 @@ h1 {
   line-height: 2;
   border-radius: 5px;
 }
+
+#ai {
+  background-color: #C8A3CA;
+  height: 40px;
+  width: 119px;
+  position: absolute;
+  border-radius: 4px;
+  left: 260px;
+  top: -45px;
+  text-align: center;
+  font-size: 32px;
+}

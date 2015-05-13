@@ -68,6 +68,7 @@ var isThereWinner = function () {
     if ((cell1 === cell2 && cell2 === cell3) && (cell1 === 'X' || cell1 === 'O')) {
       gameOver = true;
       $('div.messageBoard').append('<p>' + cell1 + ' is the winner!</p>');
+      $('div.messageBoard').append('<p>Please click Reset Board to continue playing.</p>')
 
       if (cell1 === 'X') {
         xWins += 1;
