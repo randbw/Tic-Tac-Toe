@@ -3,7 +3,7 @@ $(document).ready(function(){
   // Move counter to see if game is over
   var moveCounter = 0;
 
-  // determines if square is already occupied
+  // determines if square is already occupied using T/F
   var isOccupied = function (square) {
     if ($(square).html() === '') {
       return false;
@@ -12,10 +12,10 @@ $(document).ready(function(){
     }
   };
 
-  // Array used in isThereWinner() to decide who wins game
+  // Array in which square values are pushed. Used to check who has won with isThereWinner()
   var pandorasBox = [['','',''],['','',''],['','','']];
 
-  // places div content into pandorasBox array to figure out winning combinations
+  // places squares' content into pandorasBox
   var movePlacer = function () {
     pandorasBox[0][0] = $('div#one').html();
     pandorasBox[0][1] = $('div#two').html();
@@ -28,14 +28,14 @@ $(document).ready(function(){
     pandorasBox[2][2] = $('div#nine').html();
   };
 
-  // Decides if game is ended
+  // Changes once game has ended to true
   var gameOver = false;
 
   // stores win amounts
   var xWins = 0;
   var oWins = 0;
 
-  // Adds win amount to UI
+  // Adds win amounts to UI
   var xAdd = function () {
     $('#xWins').html('<p>X has ' + xWins + ' wins now.</p>');
   };
@@ -73,10 +73,10 @@ var isThereWinner = function () {
   }
 };
 
-  // changes depending who went last to see if it is X's or O's go
+  // Determines if it is X's go or not.
   var xTurn = true;
 
-  // Shows whose go it is above gameboard
+  // Displays whose go it is above gameboard
   var showGo = function () {
     if (xTurn) {
       $('#turn').html('X\'s go');
@@ -85,7 +85,7 @@ var isThereWinner = function () {
     }
   };
 
-  // Games played counter
+  // Counts the amount of games played
   var gamesPlayed = 0;
 
   // T/F to see if gamesPlayed has already been updated
@@ -96,7 +96,7 @@ var isThereWinner = function () {
     $('#gamesPlayed').html(gamesPlayed + ' games played.');
   };
 
-  // Places letter on gameBoard and uses xTurn to switch turn
+  // Places move ('X' or 'O') on gameBoard and uses xTurn to switch turn
   var move = function () {
     
     if (gameOver === false) { // checks if game is complete yet
@@ -109,12 +109,12 @@ var isThereWinner = function () {
           showGo(); // changes whose go it is above gameBoard
         } else {
           $(this).html('O');
-          xTurn = true; // switches player turn automatically using true/false
+          xTurn = true;
           moveCounter += 1;
           showGo();
         }
       } else {
-        $('div.messageBoard').append('<p>Cannot move here.</p>'); 
+        $('div.messageBoard').append('<p>Cannot move here.</p>'); // Displays if the block is occupied
         movePlacer();
       }
 
@@ -122,27 +122,28 @@ var isThereWinner = function () {
       isThereWinner(); // checks array to see if winner
 
 
-      if (moveCounter === 9 && gameOver === false) { // checks if the board is full after there
-      gameOver = true;                               // is no winner to end the game as draw.
+      if (moveCounter === 9 && gameOver === false) {        // checks if the board is full. If there
+      gameOver = true;                                      // is no winner to end the game as draw.
       alert('Draw!');
       $('div.messageBoard').append('<p>Result is a draw. Game is over!</p>');
       }
 
     } else if (gameOver === true) {
-      $('div.messageBoard').append('<p>Game is over!</p>'); // says that the game is over
+      $('div.messageBoard').append('<p>Game is over!</p>'); // Displays that the game is over
     }
     
-    if (gameOver === true && gamesPlayedUpdateAllowed === true) {
+    if (gameOver === true && gamesPlayedUpdateAllowed === true) { // When game is done, allows for one game counter update
       gamesPlayed += 1;
       gamesPlayedUpdateAllowed = false;
       gamesCounter();
-      $('#resetBoard').addClass('resetTime');
-    }
+      $('#resetBoard').addClass('resetTime');         // changes resetBoard to orange when game complete so 
+    }                                                 // that user knows to click it
 
   };
 
-  // Reset board function
+  // Clears it up for next game to commence
   var resetBoardFn = function () {
+
     // if (moveCounter > 1) ... make it confirm to do it
     $('div#one').html('');
     $('div#two').html('');
@@ -160,7 +161,7 @@ var isThereWinner = function () {
     gamesPlayedUpdateAllowed = true;
   };
 
-  // Restart board function
+  // Clears all counters and moves and starts anew
   var restartGame = function () {
     resetBoardFn();
     xWins = 0;
@@ -173,7 +174,7 @@ var isThereWinner = function () {
     showGo();
   };
 
-  // Activates the move function when squares are clicked
+  // The click activated functions
   $('.gameBoard').on('click','.square',move);
   $('#resetBoard').on('click',resetBoardFn);
   $('#restartGame').on('click',restartGame);

@@ -19,7 +19,7 @@ body {
   background: rgb(118,201,229);
   display: inline-block;
   text-align: center;
-  font-size: 110px;
+  font-size: 95px;
   vertical-align: middle;
   border-radius: 5px;
   padding: 0.5px;
@@ -49,6 +49,10 @@ body {
   top: -50px;
   border-radius: 5px;
   text-align: center;
+}
+
+.messageBoard > p {
+  font-size: 20px;
 }
 
 h1 {
@@ -83,6 +87,10 @@ h1 {
 }
 #oWins {
   top: 110px;
+}
+
+#oWins, #xWins {
+  background-color: #93E681;
 }
 
 #resetBoard {
