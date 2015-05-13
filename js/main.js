@@ -1,5 +1,12 @@
 $(document).ready(function(){
 
+
+/********************************************************************
+
+                    Game Mechanics
+
+********************************************************************/
+
   // Move counter to see if game is over
   var moveCounter = 0;
 
@@ -194,5 +201,48 @@ var isThereWinner = function () {
   $('.gameBoard').on('click','.square',move);
   $('#resetBoard').on('click',resetBoardwithConfirm);
   $('#restartGame').on('click',restartGameWithConfirm);
+
+
+/********************************************************************
+
+                    jQuery FANCIFICATION STUFF
+
+********************************************************************/
+
+// When you press restart, everything fades out and then back in cleared as if page just loaded
+var restartFlash = function () {
+  $('body').fadeOut(130).fadeIn(130);
+};
+
+var resetFlash = function () {
+  $(this).fadeOut(130).fadeIn(130);
+}
+
+// Click activated visual functions
+$('#restartGame').on('click',restartFlash);
+$('#resetBoard').on('click',resetFlash);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 });
