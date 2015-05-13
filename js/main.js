@@ -223,28 +223,5 @@ var resetFlash = function () {
 // Click activated visual functions
 $('#restartGame').on('click',restartFlash);
 $('#resetBoard').on('click',resetFlash);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 });
