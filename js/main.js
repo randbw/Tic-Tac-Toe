@@ -163,7 +163,7 @@ var isThereWinner = function () {
     $('div#nine').html('');
     moveCounter = 0;
     gameOver = false;
-    $('.messageBoard').html('<h2>Message Board</h2>');
+    $('.messageBoard').html('<h2><u>Message Board</u></h2>')
     $('#resetBoard').removeClass('resetTime').addClass('infoBox');
     gamesPlayedUpdateAllowed = true;
   };
@@ -223,5 +223,17 @@ var resetFlash = function () {
 // Click activated visual functions
 $('#restartGame').on('click',restartFlash);
 $('#resetBoard').on('click',resetFlash);
+
+
+
+
+
+
+
+
+
+
+
+
  
 });
