@@ -141,10 +141,8 @@ var isThereWinner = function () {
 
   };
 
-  // Clears it up for next game to commence
+  // Clears board for next game to commence
   var resetBoardFn = function () {
-
-    // if (moveCounter > 1) ... make it confirm to do it
     $('div#one').html('');
     $('div#two').html('');
     $('div#three').html('');
@@ -159,6 +157,17 @@ var isThereWinner = function () {
     $('.messageBoard').html('<h2>Message Board</h2>');
     $('#resetBoard').removeClass('resetTime').addClass('infoBox');
     gamesPlayedUpdateAllowed = true;
+  };
+
+  var resetBoardwithConfirm = function () {
+    if (gameOver === false) {
+      var confirmReset = confirm('Are you sure you wish to reset?');
+      if (confirmReset === true) {
+        resetBoardFn();
+      }
+    } else {
+      resetBoardFn();
+    }
   };
 
   // Clears all counters and moves and starts anew
@@ -176,7 +185,7 @@ var isThereWinner = function () {
 
   // The click activated functions
   $('.gameBoard').on('click','.square',move);
-  $('#resetBoard').on('click',resetBoardFn);
+  $('#resetBoard').on('click',resetBoardwithConfirm);
   $('#restartGame').on('click',restartGame);
  
 });
