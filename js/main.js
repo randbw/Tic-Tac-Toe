@@ -74,10 +74,9 @@ var isThereWinner = function () {
         oWins += 1;
         oAdd();
       }
-
+      break;
     }
-  }
-  return true;
+  };
 };
 
   // Determines if it is X's go or not.
@@ -124,7 +123,6 @@ var isThereWinner = function () {
         $('div.messageBoard').append('<p>Cannot move here.</p>'); // Displays if the block is occupied
         movePlacer();
       }
-
       movePlacer(); // places all moves into array
       isThereWinner(); // checks array to see if winner
 
@@ -135,6 +133,9 @@ var isThereWinner = function () {
         moveCounter += 1;
         showGo();
       }
+
+      console.log(gameOver);
+
       if (gameOver === false) {
       movePlacer(); // places all moves into array
       isThereWinner(); // checks array to see if winner
