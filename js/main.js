@@ -50,8 +50,25 @@ $(document).ready(function(){
     $('#oWins').html('<p>O has ' + oWins + ' wins now.</p>');
   };
 
-  // Animates window with victory announcement in it
-  
+  // animates window with victory announcement from middle to off right side of screen
+
+  var winBoxToRight = function () {
+    $('#winnerBox').animate({'left':'1720px'},700, function () {
+      $(this).css({'left':'-1280px'});
+    });
+  };
+
+  // Animates window with victory announcement from left hand side of screen with delay when reaches middle.
+  var winBoxFromLeft = function () {
+    $('#winnerBox').animate({'left':'220px'},700).delay(1200);
+  };
+
+  // Complete winBox animation
+  var winBoxCompleteMovement = function () {
+    winBoxFromLeft();
+    winBoxToRight();
+    // $('#winnerBox').css({'left':'-1280px'});
+  };
 
   // Recognises if there is a winner at end of move
 var isThereWinner = function () {
@@ -72,10 +89,13 @@ var isThereWinner = function () {
       if (cell1 === 'X') {
         xWins += 1;
         xAdd();
+        $('#winnerBox').html('<p>X Wins!</p>');
       } else if (cell1 === 'O') {
         oWins += 1;
         oAdd();
+        $('#winnerBox').html('<p>O Wins!</p>');
       }
+      winBoxCompleteMovement();
       break;
     }
   };
@@ -241,9 +261,11 @@ var aiPlay = function () {
   if (aiPlaying) {
     aiPlaying = false;
     $(this).removeClass('aiPlaying');
+    $(this).html('AI Off');
   } else {
     aiPlaying = true;
     $(this).addClass('aiPlaying');
+    $(this).html('AI On');
   }
 };
 
