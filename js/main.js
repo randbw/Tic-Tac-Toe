@@ -178,6 +178,11 @@ var isThereWinner = function () {
     $('.messageBoard').html('<h2><u>Message Board</u></h2>')
     $('#resetBoard').removeClass('resetTime').addClass('infoBox');
     gamesPlayedUpdateAllowed = true;
+
+    if (aiPlaying && xTurn === false) {
+      ai();
+      xTurn = true;
+    }
   };
 
   var resetBoardwithConfirm = function () {
