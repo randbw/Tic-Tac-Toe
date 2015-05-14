@@ -159,3 +159,20 @@ h1 {
 .aiPlaying {
   background-color: #A370A7;
 }
+
+#winnerBox {
+  height: 300px;
+  width: 500px;
+  /*background-color: #FF7401;*/
+  background-color: #5DB247;
+  opacity: 0.9;
+  position: absolute;
+  top: -25px;
+  left: 220px;
+  border-radius: 3px;
+}
+#winnerBox {
+  font-size: 150px;
+  text-align: center;
+  line-height: 0.1;
+}

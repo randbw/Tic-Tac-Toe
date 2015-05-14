@@ -50,6 +50,9 @@ $(document).ready(function(){
     $('#oWins').html('<p>O has ' + oWins + ' wins now.</p>');
   };
 
+  // Animates window with victory announcement in it
+  
+
   // Recognises if there is a winner at end of move
 var isThereWinner = function () {
 
