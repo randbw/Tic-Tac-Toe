@@ -201,6 +201,8 @@ var isThereWinner = function () {
     gamesPlayed = 0;
     gamesCounter();
     showGo();
+    aiPlaying = false;
+    $('.ai').removeClass('aiPlaying');
   };
 
   var restartGameWithConfirm = function () {
