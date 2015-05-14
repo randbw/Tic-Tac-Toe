@@ -212,7 +212,8 @@ var isThereWinner = function () {
     gamesCounter();
     showGo();
     aiPlaying = false;
-    $('.ai').removeClass('aiPlaying');
+    $('.ai').empty();
+    $('.ai').append('<img src="images/CPU_off.png">');
   };
 
   var restartGameWithConfirm = function () {
