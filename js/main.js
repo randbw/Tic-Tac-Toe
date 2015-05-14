@@ -260,12 +260,12 @@ var aiPlaying = false;
 var aiPlay = function () {
   if (aiPlaying) {
     aiPlaying = false;
-    $(this).removeClass('aiPlaying');
-    $(this).html('AI Off');
+    $(this).empty();
+    $(this).append('<img src="images/CPU_off.png">');
   } else {
     aiPlaying = true;
-    $(this).addClass('aiPlaying');
-    $(this).html('AI On');
+    $(this).empty();
+    $(this).append('<img src="images/CPU_on.png">');
   }
 };
 

@@ -156,15 +156,12 @@ h1 {
   font-size: 32px;
   cursor: pointer;
 }
-.aiPlaying {
-  background-color: #A370A7;
-}
 
 #winnerBox {
   height: 300px;
   width: 500px;
   /*background-color: #FF7401;*/
-  background-color: #5DB247;
+  background-color: #C8A3CA;
   opacity: 0.9;
   position: absolute;
   top: -25px;
