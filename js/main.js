@@ -182,6 +182,7 @@ var isThereWinner = function () {
     if (aiPlaying && xTurn === false) {
       ai();
       xTurn = true;
+      moveCounter += 1;
     }
   };
 
