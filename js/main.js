@@ -212,6 +212,7 @@ var isThereWinner = function () {
     gamesCounter();
     showGo();
     aiPlaying = false;
+    resetBoardFn();
     $('.ai').empty();
     $('.ai').append('<img src="images/CPU_off.png">');
   };
