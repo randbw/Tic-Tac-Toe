@@ -61,9 +61,6 @@ var isThereWinner = function () {
     var cell1 = $('#' + winningCombos[i][0]).children().text();
     var cell2 = $('#' + winningCombos[i][1]).children().text();
     var cell3 = $('#' + winningCombos[i][2]).children().text();
-    console.log(cell1);
-    console.log(cell2);
-    console.log(cell3);
 
     if ((cell1 === cell2 && cell2 === cell3) && (cell1 === 'X' || cell1 === 'O')) {
       gameOver = true;
@@ -80,6 +77,7 @@ var isThereWinner = function () {
 
     }
   }
+  return true;
 };
 
   // Determines if it is X's go or not.
@@ -112,13 +110,11 @@ var isThereWinner = function () {
       
       if (isOccupied(this) === false) { // checks if cell is occupied
         if (xTurn) {
-          // $(this).html('X');
           $(this).html('<div class="content">X</div>').hide().fadeIn();
           xTurn = false; // next round it will be O's go
           moveCounter += 1; // adds one to move counter
           showGo(); // changes whose go it is above gameBoard
-        } else {
-          // $(this).html('O');
+        } else if (xTurn === false && aiPlaying === false) {
           $(this).html('<div class="content">O</div>').hide().fadeIn();
           xTurn = true;
           moveCounter += 1;
@@ -132,10 +128,23 @@ var isThereWinner = function () {
       movePlacer(); // places all moves into array
       isThereWinner(); // checks array to see if winner
 
+      // AI makes its move if ai is playing, it is O turn, board isn't full and the game isn't over.
+      if ((aiPlaying && xTurn === false) && (moveCounter < 9 && gameOver === false)) {
+        ai();
+        xTurn = true;
+        moveCounter += 1;
+        showGo();
+      }
+      if (gameOver === false) {
+      movePlacer(); // places all moves into array
+      isThereWinner(); // checks array to see if winner
+    }
+      console.log(moveCounter);
 
       if (moveCounter === 9 && gameOver === false) {        // checks if the board is full. If there
       gameOver = true;                                      // is no winner to end the game as draw.
       $('div.messageBoard').append('<p>Result is a draw. Game is over!</p>');
+      $('div.messageBoard').append('<p>Please click Reset Board to continue playing.</p>')
       }
 
     } else if (gameOver === true) {
@@ -205,6 +214,67 @@ var isThereWinner = function () {
   $('#resetBoard').on('click',resetBoardwithConfirm);
   $('#restartGame').on('click',restartGameWithConfirm);
 
+/********************************************************************
+
+                  Artificial Intelligence Player
+
+********************************************************************/
+
+// T/F which determines whether or not AI is in the game
+var aiPlaying = false;
+
+//changes whether ai is playing or not
+var aiPlay = function () {
+  if (aiPlaying) {
+    aiPlaying = false;
+    $(this).removeClass('aiPlaying');
+  } else {
+    aiPlaying = true;
+    $(this).addClass('aiPlaying');
+  }
+};
+
+// Chooses a square randomly for AI to select
+var ai = function () {
+
+  var moveSelector = Math.random() * 9;
+  console.log(moveSelector);
+
+  if (moveSelector < 1 && isOccupied($('#one')) === false) {
+    $('#one').html('<div class="content">O</div>').hide().fadeIn(2000);
+    console.log(isOccupied($('#one')));
+  } else if (moveSelector < 2 && isOccupied($('#two')) === false)  {
+    $('#two').html('<div class="content">O</div>').hide().fadeIn(2000);
+    console.log(isOccupied($('#two')));
+  } else if (moveSelector < 3 && isOccupied($('#three')) === false) {
+    $('#three').html('<div class="content">O</div>').hide().fadeIn(2000);
+    console.log(isOccupied($('#three')));
+  } else if (moveSelector <4 && isOccupied($('#four')) === false)  {
+    $('#four').html('<div class="content">O</div>').hide().fadeIn(2000);
+    console.log(isOccupied($('#four')));
+  } else if (moveSelector < 5 && isOccupied($('#five')) === false) {
+    $('#five').html('<div class="content">O</div>').hide().fadeIn(2000);
+    console.log(isOccupied($('#five')));
+  } else if (moveSelector < 6 && isOccupied($('#six')) === false)  {
+    $('#six').html('<div class="content">O</div>').hide().fadeIn(2000);
+    console.log(isOccupied($('#six')));
+  } else if (moveSelector < 7 && isOccupied($('#seven')) === false) {
+    $('#seven').html('<div class="content">O</div>').hide().fadeIn(2000);
+    console.log(isOccupied($('#seven')));
+  } else if (moveSelector < 8 && isOccupied($('#eight')) === false) {
+    $('#eight').html('<div class="content">O</div>').hide().fadeIn(2000);
+    console.log(isOccupied($('#eight')));
+  } else if (moveSelector < 9 && isOccupied($('#nine')) === false) {
+    $('#nine').html('<div class="content">O</div>').hide().fadeIn(2000);
+    console.log(isOccupied($('#nine')));
+  } else {
+    ai();
+  }
+
+};
+
+// click function to turn on AI player
+$('.ai').on('click', aiPlay);
 
 /********************************************************************
 
@@ -224,10 +294,6 @@ var resetFlash = function () {
 // Click activated visual functions
 $('#restartGame').on('click',restartFlash);
 $('#resetBoard').on('click',resetFlash);
-
-
-
-
 
 
 
