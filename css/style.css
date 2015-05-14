@@ -47,7 +47,8 @@ h1 {
 }
 
 .messageBoard {
-  background-color: rgb(246,120,114);
+  /*background-color: rgb(246,120,114);*/
+  background: rgb(118,201,229);
   height: 454px;
   width: 200px;
   display: inline-block;
@@ -57,6 +58,7 @@ h1 {
   border-radius: 5px;
   text-align: center;
   overflow: scroll;
+  padding: 0 5px 0 5px;
 }
 
 .messageBoard > p {
@@ -66,7 +68,8 @@ h1 {
 .infoBox {
   width: 200px;
   height: 91px;
-  background-color: #FFEED3;
+  /*background-color: #FFEED3;*/
+  background-color: #FABC41;
   border-radius: 5px;
   position: absolute;
   right: 270px;
@@ -82,7 +85,8 @@ h1 {
 }
 
 #oWins, #xWins {
-  background-color: #93E681;
+  /*background-color: #93E681;*/
+  background-color: #C8A3CA;
 }
 
 #resetBoard {
@@ -93,7 +97,8 @@ h1 {
 }
 
 .resetTime {
-  background-color: #ff983c;
+  /*background-color: #ff983c;*/
+  background-color: rgb(246,120,114);
 }
 
 #restartGame {
@@ -145,7 +150,6 @@ h1 {
 }
 
 .ai {
-  /*background-color: #C8A3CA;*/
   height: 40px;
   width: 119px;
   position: absolute;
@@ -160,15 +164,12 @@ h1 {
 #winnerBox {
   height: 300px;
   width: 500px;
-  /*background-color: #FF7401;*/
   background-color: #C8A3CA;
   opacity: 0.9;
   position: absolute;
   top: -25px;
   left: -1280px;
   border-radius: 3px;
-}
-#winnerBox {
   font-size: 150px;
   text-align: center;
   line-height: 0.1;

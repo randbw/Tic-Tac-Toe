@@ -50,26 +50,6 @@ $(document).ready(function(){
     $('#oWins').html('<p>O has ' + oWins + ' wins now.</p>');
   };
 
-  // animates window with victory announcement from middle to off right side of screen
-
-  var winBoxToRight = function () {
-    $('#winnerBox').animate({'left':'1720px'},700, function () {
-      $(this).css({'left':'-1280px'});
-    });
-  };
-
-  // Animates window with victory announcement from left hand side of screen with delay when reaches middle.
-  var winBoxFromLeft = function () {
-    $('#winnerBox').animate({'left':'220px'},700).delay(1200);
-  };
-
-  // Complete winBox animation
-  var winBoxCompleteMovement = function () {
-    winBoxFromLeft();
-    winBoxToRight();
-    // $('#winnerBox').css({'left':'-1280px'});
-  };
-
   // Recognises if there is a winner at end of move
 var isThereWinner = function () {
 
@@ -180,7 +160,7 @@ var isThereWinner = function () {
       $('#resetBoard').addClass('resetTime');         // changes resetBoard to orange when game complete so 
     }                                                 // that user knows to click it
     if (gameOver) {
-      $('div.messageBoard').append('<p>Please click Reset Board to continue playing.</p>');
+      $('div.messageBoard').append('<p>Please click Reset Board to continue.</p>');
     }
 
   };
@@ -330,12 +310,24 @@ var resetFlash = function () {
 $('#restartGame').on('click',restartFlash);
 $('#resetBoard').on('click',resetFlash);
 
+// animates window with victory announcement from middle to off right side of screen
+var winBoxToRight = function () {
+  $('#winnerBox').animate({'left':'1720px'},700, function () {
+    $(this).css({'left':'-1280px'});
+  });
+};
 
+// Animates window with victory announcement from left hand side of screen with delay when reaches middle.
+var winBoxFromLeft = function () {
+  $('#winnerBox').animate({'left':'220px'},700).delay(1200);
+};
 
+// Complete winBox animation
+var winBoxCompleteMovement = function () {
+  winBoxFromLeft();
+  winBoxToRight();
+};
 
+// This winBox animation is called within the isThereWinner() function
 
-
-
-
- 
 });
