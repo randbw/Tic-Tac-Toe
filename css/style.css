@@ -145,13 +145,13 @@ h1 {
 }
 
 .ai {
-  background-color: #C8A3CA;
+  /*background-color: #C8A3CA;*/
   height: 40px;
   width: 119px;
   position: absolute;
   border-radius: 4px;
-  left: 260px;
-  top: -45px;
+  left: 247px;
+  top: -49px;
   text-align: center;
   font-size: 32px;
   cursor: pointer;
