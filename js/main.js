@@ -65,7 +65,6 @@ var isThereWinner = function () {
     if ((cell1 === cell2 && cell2 === cell3) && (cell1 === 'X' || cell1 === 'O')) {
       gameOver = true;
       $('div.messageBoard').append('<p>' + cell1 + ' is the winner!</p>');
-      $('div.messageBoard').append('<p>Please click Reset Board to continue playing.</p>')
 
       if (cell1 === 'X') {
         xWins += 1;
@@ -145,7 +144,6 @@ var isThereWinner = function () {
       if (moveCounter === 9 && gameOver === false) {        // checks if the board is full. If there
       gameOver = true;                                      // is no winner to end the game as draw.
       $('div.messageBoard').append('<p>Result is a draw. Game is over!</p>');
-      $('div.messageBoard').append('<p>Please click Reset Board to continue playing.</p>')
       }
 
     } else if (gameOver === true) {
@@ -158,6 +156,9 @@ var isThereWinner = function () {
       gamesCounter();
       $('#resetBoard').addClass('resetTime');         // changes resetBoard to orange when game complete so 
     }                                                 // that user knows to click it
+    if (gameOver) {
+      $('div.messageBoard').append('<p>Please click Reset Board to continue playing.</p>');
+    }
 
   };
 
